@@ -1,0 +1,7 @@
+{
+  "ZHIPU_AI_API_KEY_VISION": "your_key_here",
+  "ZHIPU_AI_API_KEY": "your_key_here",
+  "DEEPSEEK_API_KEY": "your_key_here",
+  "GEMINI_API_KEY": "your_key_here",
+  "SILICONFLOW_API_KEY": "your_key_here"
+}

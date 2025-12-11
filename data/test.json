@@ -1,0 +1,42 @@
+[
+  {
+    "id": "math_2023_001",
+    "subject": "高等数学",
+    "type": "单选题",
+    "difficulty": "中等",
+    "question": "当 x 趋近于 0 时，函数 f(x) = sin(x) / x 的极限是多少？",
+    "options": [
+      "A. 0",
+      "B. 1",
+      "C. ∞",
+      "D. 不存在"
+    ],
+    "correct_answer": "B",
+    "analysis": "根据重要极限公式，lim(x->0) (sin x / x) = 1。这是微积分中两个重要极限之一。"
+  },
+  {
+    "id": "history_005",
+    "subject": "中国近代史",
+    "type": "简答题",
+    "difficulty": "困难",
+    "question": "请简述洋务运动的主要内容及其历史局限性。",
+    "options": [], 
+    "correct_answer": "略",
+    "analysis": "主要内容包括：1. 创办近代军事工业（如安庆内军械所）；2. 创办近代民用工业（如轮船招商局）；3. 建立新式海陆军；4. 创办新式学堂。局限性在于：只学习西方的技术，未触动封建制度的核心，导致最终失败。"
+  },
+  {
+    "id": "circuit_102",
+    "subject": "电路原理",
+    "type": "多选题",
+    "difficulty": "简单",
+    "question": "关于基尔霍夫定律，以下说法正确的是？",
+    "options": [
+      "A. KCL 体现了电荷守恒定律",
+      "B. KVL 体现了能量守恒定律",
+      "C. KCL 仅适用于直流电路",
+      "D. KVL 适用于任何集总参数电路"
+    ],
+    "correct_answer": "A,B,D",
+    "analysis": "KCL是电荷守恒的体现，KVL是能量守恒的体现。两者都适用于集总参数电路，无论直流还是交流。"
+  }
+]

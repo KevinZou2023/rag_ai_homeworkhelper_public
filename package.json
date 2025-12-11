@@ -1,0 +1,20 @@
+{
+  "name": "rag_base_on_ai",
+  "version": "1.0.0",
+  "description": "This project is a homework assistance system that uses a Retrieval-Augmented Generation (RAG) approach to answer questions. It provides an API endpoint to ask questions and get answers from an AI model, augmented with information from a local knowledge base.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "multer": "^2.0.2",
+    "node-fetch": "^2.7.0"
+  }
+}
