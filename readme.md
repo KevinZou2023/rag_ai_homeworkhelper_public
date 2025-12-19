@@ -12,14 +12,16 @@ This project is a full-stack, RAG (Retrieval-Augmented Generation) based AI assi
 
 ## 🌟 Features / 主要功能
 
--   **Full-Stack Application:** A complete solution with a React frontend and a Node.js (Express) backend.
-    -   **全栈应用:** 包含 React 前端和 Node.js (Express) 后端的完整解决方案。
+-   **Full-Stack Application:** A complete solution with a React (TypeScript + Vite) frontend and a Node.js (Express) backend.
+    -   **全栈应用:** 包含 React (TypeScript + Vite) 前端和 Node.js (Express) 后端的完整解决方案。
 -   **Interactive Chat Interface:** A user-friendly chat UI supporting real-time conversations, multiple chat histories, and Markdown rendering for formatted AI responses.
     -   **交互式聊天界面:** 友好的聊天 UI，支持实时对话、多会话历史记录，并使用 Markdown 渲染格式化的 AI 回答。
--   **Knowledge Base Management:** A built-in web interface to easily upload and delete local knowledge files (`.json`, `.txt`). The AI will automatically use these files as its reference material.
-    -   **知识库管理:** 内置的 Web 界面，可以轻松上传和删除本地知识文件 (`.json`, `.txt`)。AI 会自动将这些文件作为参考资料。
--   **RAG-Powered Backend:** The backend retrieves relevant information from the local knowledge base to provide context to the AI model, resulting in more accurate and relevant answers.
-    -   **RAG 驱动后端:** 后端从本地知识库中检索相关信息，为 AI 模型提供上下文，从而生成更准确、更相关的答案。
+-   **Image Recognition & OCR:** Supports uploading images for text and formula recognition (using GLM-4V).
+    -   **图片识别与 OCR:** 支持上传图片进行文字和公式识别 (使用 GLM-4V)。
+-   **Knowledge Base Management:** A built-in web interface to easily upload and delete local knowledge files (`.json`, `.txt`, `.md`). The AI will automatically use these files as its reference material.
+    -   **知识库管理:** 内置的 Web 界面，可以轻松上传和删除本地知识文件 (`.json`, `.txt`, `.md`)。AI 会自动将这些文件作为参考资料。
+-   **Smart RAG Backend:** The backend uses SiliconFlow embeddings and smart text splitting (handling small files as whole documents and splitting large ones by headers/paragraphs) to provide accurate context.
+    -   **智能 RAG 后端:** 后端使用 SiliconFlow 向量嵌入和智能文本切分（将小文件视为完整文档，大文件按标题/段落切分）来提供准确的上下文。
 -   **Math Formula Support:** Built-in support for rendering mathematical formulas using KaTeX.
     -   **数学公式支持:** 内置 KaTeX 支持，可完美渲染行内和块级数学公式。
 -   **User Authentication:** A simple username-based login system to personalize the experience.
@@ -96,16 +98,23 @@ npm install
 
 **3. Configure API Keys / 配置 API 密钥**
 
-Open the `server.js` file and configure the following API keys. You can use ZhipuAI, DeepSeek, or Gemini. **Crucially, you need a SiliconFlow API Key for RAG (vector search) to work.**
+1.  Copy `config.example.json` to create a new file named `config.json`.
+    *   复制 `config.example.json` 并重命名为 `config.json`。
+2.  Open `config.json` and fill in your API keys.
+    *   打开 `config.json` 并填入你的 API 密钥。
 
-打开 `server.js` 文件并配置以下 API 密钥。你可以使用智谱 AI、DeepSeek 或 Gemini。**关键提示：你需要配置 SiliconFlow API Key 才能启用 RAG（向量检索）功能。**
+You can use ZhipuAI, DeepSeek, or Gemini. **Crucially, you need a SiliconFlow API Key for RAG (vector search) to work.**
+你可以使用智谱 AI、DeepSeek 或 Gemini。**关键提示：你需要配置 SiliconFlow API Key 才能启用 RAG（向量检索）功能。**
 
-```javascript
-// server.js (Configuration section)
-const ZHIPU_AI_API_KEY = 'YOUR_KEY_HERE';      // ZhipuAI Key (Required for GLM models)
-const DEEPSEEK_API_KEY = 'YOUR_KEY_HERE';      // DeepSeek Key (Optional)
-const GEMINI_API_KEY = 'YOUR_KEY_HERE';        // Gemini Key (Optional)
-const SILICONFLOW_API_KEY = 'YOUR_KEY_HERE';   // SiliconFlow Key (REQUIRED for RAG/Embeddings)
+```json
+// config.json
+{
+  "ZHIPU_AI_API_KEY_VISION": "your_key_here", // Required for Image Recognition
+  "ZHIPU_AI_API_KEY": "your_key_here",        // Required for GLM models
+  "DEEPSEEK_API_KEY": "your_key_here",        // Optional
+  "GEMINI_API_KEY": "your_key_here",          // Optional
+  "SILICONFLOW_API_KEY": "your_key_here"      // REQUIRED for RAG/Embeddings
+}
 ```
 
 **4. Run the Backend Server / 运行后端服务器**
@@ -146,9 +155,9 @@ The frontend development server will start, typically on `http://localhost:5173`
 
 ## 📚 Adding Knowledge (Database) / 增加知识库 (数据库)
 
-This project uses **JSON files** in the `data/` directory as its database. To add new knowledge, you simply create or edit these JSON files.
+This project uses **JSON, TXT, and Markdown files** in the `data/` directory as its database. To add new knowledge, you simply create or edit these files.
 
-本项目使用 `data/` 目录下的 **JSON 文件** 作为数据库。要添加新知识，只需创建或编辑这些 JSON 文件。
+本项目使用 `data/` 目录下的 **JSON, TXT 和 Markdown 文件** 作为数据库。要添加新知识，只需创建或编辑这些文件。
 
 ### 1. JSON Format / JSON 格式
 
